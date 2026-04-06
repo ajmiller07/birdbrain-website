@@ -110,6 +110,14 @@ export default function TechnologyPage() {
             third-party weights onto any Bird Brain device. We believe the model
             layer should be as open as the audio format.
           </p>
+          <div className="flex flex-col sm:flex-row gap-3 mt-6">
+            <Button render={<Link href="/community" />} variant="outline" className="font-mono tracking-wide">
+              Explore the Weight Format →
+            </Button>
+            <Button render={<Link href="/#early-access" />} className="font-mono tracking-wide">
+              Join the Launch List
+            </Button>
+          </div>
         </div>
       </section>
     </>

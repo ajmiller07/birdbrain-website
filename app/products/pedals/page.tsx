@@ -1,4 +1,6 @@
+import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { getProductsByCategory, statusLabel } from "@/lib/products";
@@ -79,6 +81,25 @@ export default function PedalsPage() {
                       </li>
                     ))}
                   </ul>
+                  {product.status === "preorder" && (
+                    <Button
+                      render={<Link href="/#early-access" />}
+                      className="font-mono tracking-wide mt-6"
+                      size="sm"
+                    >
+                      Pre-Order · Join the Launch List →
+                    </Button>
+                  )}
+                  {product.status === "coming-soon" && (
+                    <Button
+                      render={<Link href="/#early-access" />}
+                      variant="outline"
+                      className="font-mono tracking-wide mt-6"
+                      size="sm"
+                    >
+                      Get Notified →
+                    </Button>
+                  )}
                 </div>
               </div>
             </CardContent>

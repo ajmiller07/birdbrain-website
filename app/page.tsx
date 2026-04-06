@@ -3,6 +3,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { sortedPosts, categoryLabel, formatDate } from "@/lib/posts";
+import WaitlistForm from "@/components/waitlist-form";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -242,6 +244,126 @@ export default function HomePage() {
           <Button render={<Link href="/about" />} className="font-mono">
             Our Story →
           </Button>
+        </div>
+      </section>
+
+      <Separator />
+
+      {/* Launch list */}
+      <section id="early-access" className="mx-auto max-w-6xl px-6 py-24">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="space-y-5">
+            <p className="font-mono text-xs tracking-[0.3em] text-primary uppercase">
+              Early Access
+            </p>
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
+              Latency Zero and Agent CV
+              <br />
+              are shipping soon.
+            </h2>
+            <p className="text-muted-foreground leading-relaxed">
+              Get on the launch list for hardware pre-orders, beta plugin access,
+              and early entry to the open weight registry. We send one email per
+              product — no noise.
+            </p>
+            <WaitlistForm />
+            <Button
+              render={<Link href="/community" />}
+              variant="outline"
+              className="font-mono tracking-wide self-start"
+            >
+              Open Weight Ecosystem
+            </Button>
+          </div>
+
+          <div className="space-y-3">
+            {[
+              {
+                name: "Latency Zero",
+                status: "Pre-Order",
+                detail: "Neural reverb · 0.8ms round-trip · shipping Q3 2026",
+              },
+              {
+                name: "Agent CV",
+                status: "Coming Soon",
+                detail: "Language-to-CV module · 8× precision outputs · Wi-Fi + BLE",
+              },
+              {
+                name: "Spice Lab",
+                status: "Pre-Order",
+                detail: "Circuit modeling environment · GPU-accelerated · .bbm export",
+              },
+            ].map((item) => (
+              <div
+                key={item.name}
+                className="p-5 rounded-lg border border-border bg-card flex items-start justify-between gap-4"
+              >
+                <div>
+                  <p className="font-mono text-sm font-semibold tracking-wide">
+                    {item.name}
+                  </p>
+                  <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
+                    {item.detail}
+                  </p>
+                </div>
+                <span className="shrink-0 font-mono text-[10px] text-primary border border-primary/30 rounded px-2 py-0.5">
+                  {item.status}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <Separator />
+
+      {/* Latest from the blog */}
+      <section className="mx-auto max-w-6xl px-6 py-24">
+        <div className="flex items-baseline justify-between mb-10">
+          <div className="space-y-1">
+            <p className="font-mono text-xs tracking-[0.3em] text-primary uppercase">
+              From the Blog
+            </p>
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
+              Under the hood.
+            </h2>
+          </div>
+          <Link
+            href="/blog"
+            className="font-mono text-xs text-muted-foreground hover:text-primary transition-colors whitespace-nowrap"
+          >
+            All articles →
+          </Link>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-4">
+          {sortedPosts.slice(0, 2).map((post) => (
+            <Link key={post.slug} href={`/blog/${post.slug}`} className="group block">
+              <Card className="h-full bg-card border-border transition-colors group-hover:border-primary/40">
+                <CardHeader className="pb-2">
+                  <div className="flex items-center gap-3 mb-3">
+                    <Badge variant="outline" className="font-mono text-[10px]">
+                      {categoryLabel[post.category]}
+                    </Badge>
+                    <span className="font-mono text-xs text-muted-foreground">
+                      {formatDate(post.date)} · {post.readingTime} read
+                    </span>
+                  </div>
+                  <h3 className="font-mono text-base font-semibold tracking-wide group-hover:text-primary transition-colors">
+                    {post.title}
+                  </h3>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {post.tagline}
+                  </p>
+                  <p className="mt-4 text-xs font-mono text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+                    Read article →
+                  </p>
+                </CardContent>
+              </Card>
+            </Link>
+          ))}
         </div>
       </section>
     </>

@@ -1,17 +1,12 @@
 import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
-
-const links = [
-  { href: "/products", label: "Products" },
-  { href: "/technology", label: "Technology" },
-  { href: "/about", label: "About" },
-  { href: "/team", label: "Team" },
-];
+import MobileMenu from "@/components/mobile-menu";
+import { primaryNavLinks } from "@/lib/nav-links";
 
 export default function Nav() {
   return (
     <header className="sticky top-0 z-50 bg-background/90 backdrop-blur-sm">
-      <nav className="mx-auto max-w-6xl px-6 h-16 flex items-center justify-between">
+      <nav className="relative mx-auto max-w-6xl px-6 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2.5 group">
           {/* Bird Brain wordmark */}
           <span className="font-mono text-xs tracking-[0.3em] text-primary uppercase font-semibold">
@@ -22,8 +17,9 @@ export default function Nav() {
           </span>
         </Link>
 
-        <ul className="flex items-center gap-6">
-          {links.map((link) => (
+        {/* Desktop nav */}
+        <ul className="hidden md:flex items-center gap-6">
+          {primaryNavLinks.map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}
@@ -34,6 +30,11 @@ export default function Nav() {
             </li>
           ))}
         </ul>
+
+        {/* Mobile nav — client component owns toggle state */}
+        <div className="md:hidden">
+          <MobileMenu />
+        </div>
       </nav>
       <Separator />
     </header>

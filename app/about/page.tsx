@@ -1,3 +1,5 @@
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import type { Metadata } from "next";
 
@@ -111,6 +113,26 @@ export default function AboutPage() {
             </div>
           ))}
         </div>
+      </section>
+
+      <Separator />
+
+      <section className="mx-auto max-w-6xl px-6 py-20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8">
+        <div className="space-y-2">
+          <p className="font-mono text-xs tracking-[0.3em] text-primary uppercase">
+            Get early access
+          </p>
+          <p className="text-xl font-bold tracking-tight">
+            Be first when we ship.
+          </p>
+          <p className="text-sm text-muted-foreground max-w-sm">
+            Join the launch list for pre-order access, pricing announcements, and
+            early weight drops from the community.
+          </p>
+        </div>
+        <Button render={<Link href="/#early-access" />} className="font-mono tracking-wide shrink-0">
+          Join the Launch List →
+        </Button>
       </section>
     </>
   );

@@ -1,13 +1,6 @@
 import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
-
-// Hoisted outside component — static data, no re-computation
-const footerLinks = [
-  { href: "/products", label: "Products" },
-  { href: "/technology", label: "Technology" },
-  { href: "/about", label: "About" },
-  { href: "/team", label: "Team" },
-];
+import { footerNavLinks } from "@/lib/nav-links";
 
 export default function Footer() {
   return (
@@ -25,7 +18,7 @@ export default function Footer() {
 
         <nav>
           <ul className="flex flex-wrap gap-6">
-            {footerLinks.map((link) => (
+            {footerNavLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}

@@ -1,0 +1,28 @@
+BIRD BRAIN — COMPANY BOILERPLATE
+Approved for use in press coverage without modification.
+Last updated: April 2026
+
+---
+
+LONG VERSION
+
+Bird Brain is an audio hardware and software company building guitar pedals, eurorack modules, and DAW plugins powered by neural net DSP. Its core technology — differentiable spice modeling — trains neural networks directly on the equations that describe analog circuits, rather than on audio recordings of them. The result is DSP that captures the harmonic structure, transient response, and frequency-dependent saturation of tube amplifiers, transformers, and analog filters from first principles.
+
+All Bird Brain products ship with an open weight format (.bbm), allowing users to train custom circuit models in Spice Lab, share them with the community, and load them onto any Bird Brain device or plugin. An embedded agent control layer exposes every parameter to natural language instructions over USB-C or Wi-Fi.
+
+---
+
+SHORT VERSION (one sentence)
+
+Bird Brain makes neural DSP audio hardware and plugins that model analog circuits by differentiating through their equations — not by ear.
+
+---
+
+MEDIA CONTACT
+
+press@birdbrain.audio
+Response time: within 1 business day for review unit requests and briefings.
+
+Website: https://birdbrain.audio
+Blog: https://birdbrain.audio/blog
+Community: https://birdbrain.audio/community
