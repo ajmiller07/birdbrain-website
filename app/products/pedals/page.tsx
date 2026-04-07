@@ -81,9 +81,19 @@ export default function PedalsPage() {
                       </li>
                     ))}
                   </ul>
+                  {product.detailHref && (
+                    <Button
+                      render={<Link href={product.detailHref} />}
+                      variant="outline"
+                      className="font-mono tracking-wide mt-6 mr-2"
+                      size="sm"
+                    >
+                      Full Specs →
+                    </Button>
+                  )}
                   {product.status === "preorder" && (
                     <Button
-                      render={<Link href="/#early-access" />}
+                      render={<Link href={product.detailHref ?? "/#early-access"} />}
                       className="font-mono tracking-wide mt-6"
                       size="sm"
                     >

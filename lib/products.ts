@@ -8,10 +8,33 @@ export interface Product {
   description: string;
   specs: string[];
   status: "available" | "preorder" | "coming-soon";
+  detailHref?: string;
 }
 
 export const products: Product[] = [
-  // Guitar Pedals
+  // Birch FX — Guitar Pedals
+  {
+    id: "owl",
+    name: "OWL",
+    category: "pedals",
+    tagline: "NAM-powered fuzz, overdrive, and distortion in one 125B enclosure.",
+    description:
+      "The OWL runs Neural Audio Models at 48 kHz on an Electrosmith Daisy Seed, capturing the exact transfer function of classic analog circuits — Big Muff fuzz, Klon-style overdrive, Tube Screamer, and RAT distortion — switchable mid-performance. No amp sims, no IR convolution: just direct weight inference from a circuit-trained model.",
+    specs: [
+      "Electrosmith Daisy Seed (ARM Cortex-M7, 480 MHz)",
+      "NAM neural inference at 48 kHz / 32-bit float",
+      "4 onboard circuits: OWL · KINGFISHER · FINCH · OSPREY",
+      "Drive · Tone · Mix controls",
+      "True bypass / relay switching",
+      "USB-C model updates + firmware",
+      "9V DC, standard centre-negative",
+      "Hammond 125B enclosure",
+    ],
+    status: "preorder",
+    detailHref: "/products/pedals/owl",
+  },
+
+  // Bird Brain — Guitar Pedals
   {
     id: "nn-drive",
     name: "NN-Drive",
@@ -62,7 +85,29 @@ export const products: Product[] = [
     status: "preorder",
   },
 
-  // Eurorack Modules
+  // Birch FX — Eurorack Modules
+  {
+    id: "birch-fx-eurorack",
+    name: "Birch FX Module",
+    category: "eurorack",
+    tagline: "NAM inference in a Eurorack panel — CV-addressable, gate-bypassable.",
+    description:
+      "The Birch FX Module brings the same NAM circuit models as the OWL pedal into a Eurorack format. Built on the Electrosmith Patch.Init(), it adds CV control over Drive and Tone, a gate input for momentary bypass, and ±10V audio I/O. Run it standalone or chain it with the Weight Bus.",
+    specs: [
+      "Electrosmith Patch.Init() (Daisy Seed core)",
+      "NAM neural inference at 48 kHz / 32-bit float",
+      "4 circuits: OWL · KINGFISHER · FINCH · OSPREY",
+      "CV inputs: Drive, Tone (0–5V)",
+      "Gate input: momentary bypass",
+      "±10V audio I/O (Eurorack standard)",
+      "3U, 10HP, 35mm depth",
+      "Neural Bus connector (NSB-1 compatible)",
+    ],
+    status: "preorder",
+    detailHref: "/products/eurorack/birch-fx",
+  },
+
+  // Bird Brain — Eurorack Modules
   {
     id: "neuron-vcf",
     name: "Neuron VCF",
